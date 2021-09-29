@@ -1,0 +1,66 @@
+import React, {useEffect, useContext } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {SocketContext} from '../../../SocketContext';
+
+
+import './LapTimes.css';
+
+function LapTimes () {
+    
+    const socket = useContext(SocketContext);
+    const lap_time = useSelector( (state) => state.lapTimes.lapTime);
+    const dispatch = useDispatch();
+    const lapCount = useSelector( (state) => state.lapTimes.lapCount);
+    const lapTimes = useSelector( (state) => state.lapTimes.lapTimes);
+    const bestLap = useSelector( (state) => state.lapTimes.bestLapTime);
+
+    useEffect( () =>{
+        socket.on('lap_time', (data) => {
+            dispatch({type: "update-lap-time", payload: data});
+          });
+    }, [])
+
+    useEffect( () => {
+        if (lapCount > 1) {
+            dispatch({type: "update-lap-times", payload: `${lap_time}`});
+        }
+    }, [lapCount])
+
+    useEffect( () => {
+        if (lapCount > 1) {
+            getBestLapTime();
+        }
+    }, [lapTimes])
+
+  function getBestLapTime() {
+        let bestLapTime = lapTimes[0];
+        let bestLapNumber = 1;
+        for (let i = 0; i < lapTimes.length; i++) {
+            if (bestLapTime > lapTimes[i]) {
+                bestLapTime = lapTimes[i];
+                bestLapNumber = i+1;
+            }
+        }
+        
+      dispatch({type: "update-best-lap-time", payload: {time: bestLapTime, lapNumber: bestLapNumber} });
+  }
+
+    return (
+        <div>
+            <h1>    
+                Lap {lapCount}: {lap_time} sec  
+            </h1>
+            <h2 style={{color: "red"}}>
+                Best Lap: {lapCount === 1 ?  `${lap_time} (L1)` : `${bestLap.time} (L${bestLap.lapNumber})` }
+            </h2>
+            <h3>
+            {lapTimes.map( (lapTime, index) => {
+                    return (<div>L{index + 1}: {lapTime}</div> )
+                })
+            }
+            </h3>
+        </div>
+    );
+} 
+
+export default LapTimes;

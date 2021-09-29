@@ -1,0 +1,7 @@
+.gps-container {
+    height: 250px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

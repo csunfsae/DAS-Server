@@ -1,0 +1,32 @@
+.suspension-container {
+    padding: 0 15px; 
+}
+
+.suspension-data {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-areas: 
+        "suspension-left-side suspension-left-side suspension-left-side g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram suspension-right-side suspension-right-side suspension-right-side"
+        "suspension-left-side suspension-left-side suspension-left-side g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram suspension-right-side suspension-right-side suspension-right-side"
+        "suspension-left-side suspension-left-side suspension-left-side g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram suspension-right-side suspension-right-side suspension-right-side";
+    }
+
+.suspension-left-side{
+    grid-area: suspension-left-side;
+}
+
+.suspension-right-side {
+    grid-area: suspension-right-side;
+}
+
+.throttle-position {
+    grid-area: throttle-position;
+}
+
+.brake-position {
+    grid-area: brake-position;
+}
+
+.g-g-diagram {
+    grid-area: g-g-diagram;
+}
