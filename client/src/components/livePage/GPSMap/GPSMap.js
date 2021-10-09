@@ -4,6 +4,8 @@ import './GPSMap.css';
 import CarLocation from '../CarLocation/CarLocation';
 import TrackPath from '../TrackPath/TrackPath';
 import {SocketContext} from '../../../SocketContext';
+import {updateGPSMapContainerDimensions} from '../../../actions/livePage/gpsActions'
+import {updateSpeed} from '../../../actions/livePage/monitoringActions'
 
 function GPSMap () {
 
@@ -20,14 +22,14 @@ function GPSMap () {
     useLayoutEffect( () => {
         if (GPSMapContainer.current) {
             const dimensions = {height: GPSMapContainer.current.offsetHeight, width: GPSMapContainer.current.offsetWidth };
-            dispatch( {type: "update-gps-map-container-dimensions", payload: dimensions } );
+            dispatch(updateGPSMapContainerDimensions(dimensions))
         }
         GPSMapContainer.current = false;
     }, [GPSMapContainer, GPSMapSvgPathDimensions])
 
     useLayoutEffect(() => {
         socket.on('speed', (data) => {
-            dispatch({type: "update-speed", payload: data});
+            dispatch(updateSpeed(data))
           });
     }, [])
 

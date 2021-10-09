@@ -3,10 +3,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Scatter} from  'react-chartjs-2';
 import {SocketContext} from '../../../SocketContext';
 import SteeringAngle from '../SteeringAngle/SteeringAngle';
-
+import {updateThrottlePosition, updateBrakePosition, updateGGDiagram} from '../../../actions/livePage/vehicleDynamicsActions'
+import {updateFLTireLoad, updateFLTireTemp, updateFRTireLoad, updateFRTireTemp, updateRLTireLoad, updateRLTireTemp, updateRRTireLoad, updateRRTireTemp} from '../../../actions/livePage/tiresActions'
 import './GForceChart.css';
 import VerticalBar from '../VerticalBar/VerticalBar';
-
 
 function GForceChart () {
 
@@ -54,52 +54,48 @@ function GForceChart () {
       };
 
       useEffect( () => {
-        socket.on('steering_angle', (data) => {
-          dispatch({type: "update-steering_angle-value", payload: data});
-        });
-
         socket.on('gForceChart', (data) => {
-          dispatch({type: "update-gg-diagram", payload: data});
+          dispatch(updateGGDiagram(data))
         });
 
         socket.on('brake_position', (data) => {
-          dispatch({type: "update-brake_position", payload: data});
+          dispatch(updateBrakePosition(data))
         });
         
         socket.on('throttle_position', (data) => {
-          dispatch({type: "update-throttle_position", payload: data});
+          dispatch(updateThrottlePosition(data))
         });
 
         socket.on('fl_tire_load', (data) => {
-          dispatch({type: "update-fl_tire_load", payload: data});
+          dispatch(updateFLTireLoad(data))
         });
 
         socket.on('fl_tire_temp', (data) => {
-          dispatch({type: "update-fl_tire_temp", payload: data});
+          dispatch(updateFLTireTemp(data))
         });
 
         socket.on('fr_tire_load', (data) => {
-          dispatch({type: "update-fr_tire_load", payload: data});
+          dispatch(updateFRTireLoad(data))
         });
 
         socket.on('fr_tire_temp', (data) => {
-          dispatch({type: "update-fr_tire_temp", payload: data});
+          dispatch(updateFRTireTemp(data))
         });
 
         socket.on('rl_tire_load', (data) => {
-          dispatch({type: "update-rl_tire_load", payload: data});
+          dispatch(updateRLTireLoad(data))
         });
 
         socket.on('rl_tire_temp', (data) => {
-          dispatch({type: "update-rl_tire_temp", payload: data});
+          dispatch(updateRLTireTemp(data))
         });
 
         socket.on('rr_tire_load', (data) => {
-          dispatch({type: "update-rr_tire_load", payload: data});
+          dispatch(updateRRTireLoad(data))
         });
 
         socket.on('rr_tire_temp', (data) => {
-          dispatch({type: "update-rr_tire_temp", payload: data});
+          dispatch(updateRRTireTemp(data))
         });
 
       },  []);

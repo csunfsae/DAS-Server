@@ -2,6 +2,7 @@ import React, { useEffect, useContext} from 'react';
 import HorizontalBar from '../HorizontalBars/HorizontalBar/HorizontalBar';
 import {useSelector, useDispatch} from 'react-redux';
 import {SocketContext } from '../../../SocketContext';
+import {updateBatteryVoltage, updateMotorTemp, updateMotorControllerAirTemp} from '../../../actions/livePage/monitoringActions.js'
 
 function HorizontalBars() {
 
@@ -16,18 +17,18 @@ function HorizontalBars() {
     useEffect( () => {
 
         socket.on('battery_voltage', (data) => {
-            dispatch({type: "update-battery_voltage-value", payload: data});
+            dispatch(updateBatteryVoltage(data))
           });
 
           socket.on('motor_temp', (data) => {
-            dispatch({type: "update-motor_temp-value", payload: data});
+            dispatch(updateMotorTemp(data))
           });
 
           socket.on('motor_controller_air_temp', (data) => {
-            dispatch({type: "update-motor_controller_air_temp-value", payload: data});
+            dispatch(updateMotorControllerAirTemp(data))
           });
 
-      }, []);
+      }, [socket, dispatch]);
           
     return (
         <div className="horizontal-bars-container" style={{marginTop: "48px"}}>

@@ -1,4 +1,4 @@
-import {UPDATE_STEERING_ANGLE, UPDATE_THROTTLE_POSITION, UPDATE_BRAKE_POSITION, UPDATE_GG_DIAGRAM} from '../../actions/livePage/vehicleDynamicsActions';
+import {UPDATE_STEERING_ANGLE, UPDATE_THROTTLE_POSITION, UPDATE_BRAKE_POSITION, UPDATE_GG_DIAGRAM, UPDATE_JETSON_CONNECTION} from '../../actions/livePage/vehicleDynamicsActions';
 
 const initalState = {
     steeringAngle: {
@@ -16,7 +16,8 @@ const initalState = {
         max: 100,
         value: 0
     },
-    gForceData: []
+    gForceData: [],
+    jetsonConnection: 'Not Connected'
 }
 
 function vehicleDynamicsReducer (state = initalState, action) {
@@ -44,6 +45,11 @@ function vehicleDynamicsReducer (state = initalState, action) {
             return {
                 ...state, 
                 gForceData: [...state.gForceData, action.payload]
+            }
+        case UPDATE_JETSON_CONNECTION: 
+            return {
+                ...state,
+                jetsonConnection: {...state.jetsonConnection, value: action.payload}
             }
         default:
             return state;

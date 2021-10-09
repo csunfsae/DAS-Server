@@ -1,6 +1,7 @@
 import React, {useEffect, useContext } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {SocketContext} from '../../../SocketContext';
+import {updateLapTime, updateLapTimes, updateBestLapTime} from '../../../actions/livePage/lapTimesActions'
 
 
 import './LapTimes.css';
@@ -16,13 +17,13 @@ function LapTimes () {
 
     useEffect( () =>{
         socket.on('lap_time', (data) => {
-            dispatch({type: "update-lap-time", payload: data});
+            dispatch(updateLapTime(data))
           });
     }, [])
 
     useEffect( () => {
         if (lapCount > 1) {
-            dispatch({type: "update-lap-times", payload: `${lap_time}`});
+            dispatch(updateLapTimes(`${lap_time}`))
         }
     }, [lapCount])
 
@@ -41,8 +42,7 @@ function LapTimes () {
                 bestLapNumber = i+1;
             }
         }
-        
-      dispatch({type: "update-best-lap-time", payload: {time: bestLapTime, lapNumber: bestLapNumber} });
+        dispatch(updateBestLapTime({time: bestLapTime, lapNumber: bestLapNumber}))
   }
 
     return (

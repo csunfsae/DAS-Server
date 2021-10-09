@@ -1,4 +1,4 @@
-import {ADD_COORDINATE_TO_GPS_TRACK, UPDATE_CAR_LOCATION, UPDATE_GPS_MAP_CONTAINER_DIMENSIONS, UPDATE_GPS_MAP_SVG_DIMENSIONS, UPDATE_FIRST_LAP, UPDATE_LAP_COUNT} from '../../actions/livePage/gpsActions';
+import {ADD_COORDINATE_TO_GPS_TRACK, UPDATE_CAR_LOCATION, UPDATE_GPS_MAP_CONTAINER_DIMENSIONS, UPDATE_GPS_MAP_SVG_DIMENSIONS, UPDATE_FIRST_LAP} from '../../actions/livePage/gpsActions';
 import proj4 from 'proj4';
 
 const initalStartPosition = (latitude, longitude) => {
@@ -16,8 +16,7 @@ const initalState = {
     carLocation: {x: -118.257521724907, y: 34.876530909858, verticalDisplacement: 0},
     GPSMapContainerDimensions: { height: 0, width: 0},
     GPSMapSvgPathDimensions: {x: 0, y: 0, width: 0, height: 0},
-    firstLap: true,
-    lapCount: 1
+    firstLap: true
 }
 
 function gpsReducer(state = initalState, action) {
@@ -51,12 +50,6 @@ function gpsReducer(state = initalState, action) {
             return {
                 ...state,
                 firstLap: action.payload
-            }
-
-        case UPDATE_LAP_COUNT:
-            return {
-                ...state,
-                lapCount: state.lapCount + 1
             }
 
         default: 

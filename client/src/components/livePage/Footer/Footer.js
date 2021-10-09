@@ -3,20 +3,21 @@ import {useSelector, useDispatch} from 'react-redux';
 import {SocketContext} from '../../../SocketContext';
 import CurrentDateTime from '../CurrentDateTime.js';
 import './Footer.css'
+import {updateJetsonConnection} from '../../../actions/livePage/vehicleDynamicsActions'
 
 function Footer() {
 
     const socket = useContext(SocketContext);
-    const jetson_connection = useSelector( (state) => state.jetsonConnection);
+    const jetson_connection = useSelector( (state) => state.vehicleDynamics.jetsonConnection);
     const dispatch = useDispatch();
 
     useEffect( () => {
         window.localStorage.setItem('jetson-connection', jetson_connection);
         socket.on('jetson_connection', (data) => {
             window.localStorage.setItem('jetson-connection', data);
-            dispatch({type: "update-jetson-connection", payload: data});
+            dispatch(updateJetsonConnection(data))
           });
-    }, [jetson_connection])
+    }, [jetson_connection, socket, dispatch])
 
     return (
         <footer className="footer py-3">

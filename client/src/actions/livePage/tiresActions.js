@@ -12,40 +12,40 @@ export const UPDATE_RR_TIRE_TEMP = "UPDATE_RR_TIRE_TEMP";
 
 export const updateFLTireLoad = value => ({
     type: UPDATE_FL_TIRE_LOAD, 
-    payload: {value}
+    payload: value
 });
 
 export const updateFLTireTemp = value => ({
     type: UPDATE_FL_TIRE_TEMP, 
-    payload: {value}
+    payload: value
 });
 
 export const updateFRTireLoad = value => ({
     type: UPDATE_FR_TIRE_LOAD, 
-    payload: {value}
+    payload: value
 });
 
 export const updateFRTireTemp = value => ({
     type: UPDATE_FR_TIRE_TEMP, 
-    payload: {value}
+    payload: value
 });
 
 export const updateRLTireLoad = value => ({
     type: UPDATE_RL_TIRE_LOAD, 
-    payload: {value}
+    payload: value
 });
 
 export const updateRLTireTemp = value => ({
     type: UPDATE_RL_TIRE_TEMP, 
-    payload: {value}
+    payload: value
 });
 
 export const updateRRTireLoad = value => ({
     type: UPDATE_RR_TIRE_LOAD, 
-    payload: {value}
+    payload: value
 });
 
 export const updateRRTireTemp = value => ({
     type: UPDATE_RR_TIRE_TEMP, 
-    payload: {value}
+    payload: value
 });

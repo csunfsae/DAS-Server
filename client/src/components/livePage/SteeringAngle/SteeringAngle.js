@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useContext, useRef, useLayoutEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {SocketContext } from '../../../SocketContext';
+import {updateSteeringAngle} from '../../../actions/livePage/vehicleDynamicsActions'
 
 
 function SteeringAngle () {
@@ -29,7 +30,7 @@ function SteeringAngle () {
 
     useEffect( ()=> {
         socket.on('steering_angle', (data) => {
-            dispatch({type: "update-steering_angle-value", payload: data});
+            dispatch(updateSteeringAngle(data))
         });
     }, [])
 

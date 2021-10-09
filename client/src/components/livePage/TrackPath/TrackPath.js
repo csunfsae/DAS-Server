@@ -1,7 +1,7 @@
 import React, {useRef, useLayoutEffect, memo} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-
 import {select, line, curveCardinalClosed} from 'd3';
+import {updateGPSMapSvgDimensions} from '../../../actions/livePage/gpsActions'
 
 function TrackPath() {
 
@@ -21,7 +21,7 @@ function TrackPath() {
             const pathDimensions = {x: x, y: y, width: width, height: height};
             
             if (pathDimensions.x !== 0 ) {
-                dispatch({type: 'update-gps-map-svg-path-dimensions', payload: pathDimensions})
+                dispatch(updateGPSMapSvgDimensions(pathDimensions))
             }
         }
     }, [trackPath, firstLap])
