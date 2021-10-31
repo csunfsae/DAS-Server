@@ -2,8 +2,8 @@
   border: 1px solid lightgray;
 }
 .svg__path {
-  animation: bounce linear 600ms; 
-  transform-origin: 50% 100%; 
+  animation: bounce linear 600ms;
+  transform-origin: 50% 100%;
   margin: auto;
 }
 
@@ -14,12 +14,13 @@ body {
 .das-container {
   display: grid;
   width: 100%;
-  grid-template-areas: "laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes"
-                       "horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars  horizontal-bars  horizontal-bars"
-                       "gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track"
-                       "vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars"
-                       "g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram";
-  grid-template-columns: repeat(12,1fr);
+  grid-template-areas:
+    "laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes laptimes"
+    "horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars  horizontal-bars  horizontal-bars"
+    "gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track gps-track"
+    "vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars vertical-bars"
+    "g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram";
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .laptimes {
@@ -39,12 +40,13 @@ body {
 }
 
 .g-g-diagram {
-  grid-area: g-g-diagram ;
+  grid-area: g-g-diagram;
 }
 
 @media only screen and (min-width: 992px) {
   .das-container {
-    grid-template-areas:  "laptimes laptimes laptimes laptimes laptimes laptimes gps-track gps-track gps-track gps-track gps-track gps-track"
-                          "g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars";
+    grid-template-areas:
+      "laptimes laptimes laptimes laptimes laptimes laptimes gps-track gps-track gps-track gps-track gps-track gps-track"
+      "g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram g-g-diagram horizontal-bars horizontal-bars horizontal-bars horizontal-bars horizontal-bars";
   }
 }

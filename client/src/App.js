@@ -5,6 +5,7 @@ import {Switch, Route} from 'react-router-dom';
 import LiveData from './pages/LiveData';
 import HistoricalData from './pages/HistoricalData';
 import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/login/LoginPage';
 
 import ListSensors from './pages/sensors/ListSensors';
 import NewSensor from './pages/sensors/NewSensor';
@@ -28,14 +29,13 @@ import NewSensorCategory from './pages/sensorCategories/NewSensorCategory';
 
 
 function App() {
-  
-  return (
-    <>
-      
-      <Switch>
+    return (
+    <>      
+      <Switch>        
         <Route exact path={"/"} component={LandingPage}/>
         <Route exact path={"/live"} component={LiveData}/>
         <Route path={"/history"} component={HistoricalData}/>
+        <Route path={"/login"} component={LoginPage}/>
         
         <Route exact path={"/users"} component={ListUsers}/>
         <Route path={"/users/new"} component={NewUser}/>
@@ -56,7 +56,6 @@ function App() {
         <Route path={"/sensorCategories/new"} component={NewSensorCategory}/>
         <Route exact path={"/sensorCategories/:id"} component={ShowSensorCategory}/>
         <Route path={"/sensorCategories/:id/edit"} component={EditSensorCategory}/>
-
       </Switch>
     </>
   );
