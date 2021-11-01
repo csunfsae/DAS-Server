@@ -51,7 +51,7 @@ app.use('/sensorTypes', sensorCategoryRoutes);
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/test_matador_motorsports', {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb://127.0.0.1:27017/test_matador_motorsports', {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 app.get('/', async (req, res) => {

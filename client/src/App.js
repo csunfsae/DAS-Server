@@ -25,15 +25,18 @@ import ListSensorCategories from './pages/sensorCategories/ListSensorCategories'
 import EditSensorCategory from './pages/sensorCategories/EditSensorCategory';
 import ShowSensorCategory from './pages/sensorCategories/ShowSensorCategory';
 import NewSensorCategory from './pages/sensorCategories/NewSensorCategory';
-
-
+import Header from './components/Header/Header';
+import Footer from './components/Footer';
 function App() {
   
   return (
     <>
-      
+    
       <Switch>
+  
         <Route exact path={"/"} component={LandingPage}/>
+        <Header />
+        <Footer/>
         <Route exact path={"/live"} component={LiveData}/>
         <Route path={"/history"} component={HistoricalData}/>
         
