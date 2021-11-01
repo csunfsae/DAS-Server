@@ -33,33 +33,28 @@ code {
 .overlay{
   text-align: center;
   display: contents;
-
-  
-  
  
 }
+
 h1{
   font-size: 60px;
- margin:.2em;
+  /* margin: 2em;
   padding:1em 2em 1em;
   display: flex;
-  border: .4em;
+  border: 4em; */
   
 }
-p{
 
+p{
   padding:0em;
   font-size: 30px;
   margin: 0em 2em 10em;
   display: flex;
 }
+
 img{
   float: right;
-}
-
-
-  
-  
+} 
 
 .footer{
   display: flex;

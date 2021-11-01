@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderLP from '../components/Header/HeaderLP'
 import Footer from '../components/Footer';
-import Container from 'react-bootstrap/esm/Container';
+// import Container from 'react-bootstrap/esm/Container';
 import racecar from '../components/images/racecar.svg';
 
 function LandingPage() {

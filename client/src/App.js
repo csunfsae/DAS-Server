@@ -1,10 +1,11 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {Switch, Route} from 'react-router-dom';
 import LiveData from './pages/LiveData';
 import HistoricalData from './pages/HistoricalData';
 import LandingPage from './pages/LandingPage';
+import Register from './pages/Register';
 
 import ListSensors from './pages/sensors/ListSensors';
 import NewSensor from './pages/sensors/NewSensor';
@@ -35,10 +36,17 @@ function App() {
       <Switch>
   
         <Route exact path={"/"} component={LandingPage}/>
+        { 
+        /*
+        DO NOT ADD COMPONENTS INSIDE SWITCH
+        
         <Header />
         <Footer/>
+        */
+        }
         <Route exact path={"/live"} component={LiveData}/>
         <Route path={"/history"} component={HistoricalData}/>
+        <Route path={"/register"} component={Register}/>
         
         <Route exact path={"/users"} component={ListUsers}/>
         <Route path={"/users/new"} component={NewUser}/>
