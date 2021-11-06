@@ -7,7 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthContextProvider } from './store/auth-context';
+import { AuthContextProvider } from './store/authContext';
 
 // Live Page Reducers
 import gpsReducer from './reducers/livePage/gpsReducer';
@@ -38,15 +38,15 @@ const allReducers = combineReducers(reducers);
 const store = createStore(allReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <AuthContextProvider>
-    <React.StrictMode>
+  <React.StrictMode>
+    <AuthContextProvider>
       <BrowserRouter>
         <Provider store={store}>
           <App />
         </Provider>
       </BrowserRouter>
-    </React.StrictMode>
-  </AuthContextProvider>,
+    </AuthContextProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

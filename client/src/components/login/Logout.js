@@ -1,24 +1,30 @@
-import React, { useContext } from 'react';
-import AuthContext from '../../store/auth-context'
+import React from 'react';
 import { GoogleLogout } from 'react-google-login';
 import { useHistory } from 'react-router-dom'
 
-
-const clientId = '345612164466-j2pnr9ubb95nhvgrjl5lutuoejmdi83n.apps.googleusercontent.com';
-
 function Logout() {
-  const authCtx = useContext(AuthContext);
   const history = useHistory();
 
-  const onSuccess = () => {
-    authCtx.login(null);
-    history.replace('/');
+  const onSuccess = async () => {
+    const res = await fetch(`http://localhost:4000/api/v1/auth/google/logout`, {
+      method: "Get",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    const status = res.status;
+    if (status === 200) {
+      history.push("/");
+    } else {
+      alert("User was not logged out.  Please try again.")
+    }
   };
 
   return (
     <div>
       <GoogleLogout
-        clientId={clientId}
+        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Logout"
         onLogoutSuccess={onSuccess}
         isSignedIn={false}

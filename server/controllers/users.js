@@ -1,8 +1,6 @@
 import { OAuth2Client } from "google-auth-library";
 import User from "../models/User.js";
 
-
-
 export const getUsers = async (req, res) => {
     try {
         const users = await User.find();
@@ -15,8 +13,8 @@ export const getUsers = async (req, res) => {
 export const authUser = async (req, res) => {
     try {
         const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-        const token = req.query.tokenId;
 
+        const token = req.query.tokenId;
         const ticket = await client.verifyIdToken({
             idToken: token,
             audience: process.env.CLIENT_ID
@@ -27,7 +25,8 @@ export const authUser = async (req, res) => {
         const user = await User.findOne({ googleId: sub, email: email });
 
         if (user != null) {
-            res.status(200).json(user.firstName);
+            req.session.userId = user.id;
+            res.status(200).json(token);
         } else {
             throw Error("Unable to find user");
         }
@@ -35,6 +34,19 @@ export const authUser = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 };
+
+export const logoutUser = async (req, res) => {
+    await req.session.destroy()
+    res.status(200)
+    res.json({
+        message: "Logged out successfully"
+    })
+}
+
+export const checkUser = async (req, res) => {
+    const user = await User.findOne({ _id: req.session.userId });
+    res.status(200).json(user);
+}
 
 export const createUser = (req, res) => {
     try {

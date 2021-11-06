@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { SocketContext, socket } from '../SocketContext';
 import Footer from '../components/livePage/Footer/Footer';
 import Container from 'react-bootstrap/Container';
@@ -7,12 +7,24 @@ import LapTimes from '../components/livePage/LapTimes/LapTimes';
 import GForceChart from '../components/livePage/GForceChart/GForceChart';
 import GPSMap from '../components/livePage/GPSMap/GPSMap';
 import Header from '../components/Header/Header';
-import AuthContext from '../store/auth-context.js'
-import { Redirect } from 'react-router-dom'
+import AuthContext from '../store/authContext';
+import { Redirect } from 'react-router'
 
 function LiveData() {
+    const [isLoggedIn, setLogin] = useState(true);
+    const authCtx = useContext(AuthContext);
+    useEffect(() => {
+        authCtx.isLoggedIn()
+            .then(response =>
+                setLogin(response)
+            );
+    }, undefined)
+
     return (
         <>
+            {!isLoggedIn && (
+                <Redirect to="/" />
+            )}
             <Header />
             <SocketContext.Provider value={socket}>
                 <Container fluid>

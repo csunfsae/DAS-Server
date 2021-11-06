@@ -1,24 +1,18 @@
-import React, { useContext } from 'react';
-import AuthContext from '../../store/auth-context'
+import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 
-const clientId = '345612164466-j2pnr9ubb95nhvgrjl5lutuoejmdi83n.apps.googleusercontent.com'
-
 function Login() {
-  const authCtx = useContext(AuthContext);
-
   const onSuccess = async googleData => {
     const res = await fetch(`http://localhost:4000/api/v1/auth/google/user?tokenId=${encodeURIComponent(googleData.tokenId)}`, {
       method: "Get",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json"
       }
     })
-    const status = res.status;
-    if (status == 200) {
-      authCtx.login(googleData.tokenId);
+    if (res.status === 200) {
+      window.location.reload(true);
     } else {
-      authCtx.login(null);
       alert("User not found. Please sign up or try a different user.")
     }
   };
@@ -30,7 +24,7 @@ function Login() {
   return (
     <div>
       <GoogleLogin
-        clientId={clientId}
+        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Login"
         onSuccess={onSuccess}
         onFailure={onFailure}

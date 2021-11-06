@@ -1,18 +1,20 @@
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import logo from '../../FSAE-Logo.png';
 import Login from '../../components/login/Login';
 import Logout from '../../components/login/Logout';
-import AuthContext from '../../store/auth-context';
-import { Redirect } from 'react-router-dom'
-
-
+import AuthContext from '../../store/authContext';
 
 function Header() {
-
+    const [isLoggedIn, setLogin] = useState(false);
     const authCtx = useContext(AuthContext);
-    const isLoggedIn = authCtx.isLoggedIn;
+    useEffect(() => {
+        authCtx.isLoggedIn()
+            .then(response =>
+                setLogin(response)
+            );
+    }, undefined)
 
     return (
         <Navbar className="das-navbar" bg="dark" variant="dark" expand="lg">
@@ -23,23 +25,15 @@ function Header() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     {!isLoggedIn && (
-                        <div>
-                            <Redirect to='/' />
-                            <Login />
-                        </div>
+                        <Login />
                     )}
                     {isLoggedIn && (
-                        <>
-                            <Nav.Link href="#link">Suspension</Nav.Link>
-                            <Nav.Link href="#link">Engine</Nav.Link>
-                            <Logout />
-                        </>
+                        <><Nav.Link href="#link">Suspension</Nav.Link><Nav.Link href="#link">Engine</Nav.Link><Logout /></>
                     )}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
     );
 }
-//
-//E7tBA9WEMBmT7E-0Jya8n9SV
+
 export default Header;

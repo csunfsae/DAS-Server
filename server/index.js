@@ -1,4 +1,6 @@
 import express from 'express';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import createSeedData from './data/SeedData.js';
@@ -27,6 +29,11 @@ const app = express();
 
 // middleware
 app.use(express.json());
+app.use(cookieParser());
+
+
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(session({ resave: false, secret: '123456', cookie: { maxAge: oneDay }, saveUninitialized: true }));
 
 // Add headers before the routes are defined
 app.use(function (req, res, next) {
@@ -58,7 +65,7 @@ const server = app.listen(PORT, console.log(`Server running in ${process.env.NOD
 
 const io = new Server(server);
 
-app.use('/api/v1/auth/google', userRoutes);
+app.use('/api/v1/auth', userRoutes);
 app.use('/sensors', sensorRoutes);
 app.use('/subTeams', subTeamRoutes);
 app.use('/sensorCategories', sensorTypeRoutes);
