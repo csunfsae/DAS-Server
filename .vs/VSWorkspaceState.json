@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\reducers",
+    "\\client\\src\\reducers\\historyPage",
+    "\\server",
+    "\\server\\controllers"
+  ],
+  "PreviewInSolutionExplorer": false
+}

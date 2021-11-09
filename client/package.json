@@ -17,7 +17,9 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
+    "cookie-parser": "^1.4.5",
     "d3": "^6.5.0",
+    "express-session": "^1.17.2",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "proj4": "^2.7.0",
@@ -36,6 +38,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.3.0",
+    "swr": "^1.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
