@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,129 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+/* *{
+  margin:10;
+  padding:0;
+  box-sizing: border-box;
+
 }
+
+
+body {
+text-align: center;
+  margin:0;
+  padding:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.lPBody{
+  
+  background-color: rgb(61, 61, 61);
+  display: contents;
+  padding:-1em;
+  margin:0;
+  
+}
+.overlay{
+  text-align: center;
+  display: contents;
+ 
+}
+
+h1{
+  font-size: 60px;
+  
+}
+
+p{
+  padding:0em;
+  font-size: 30px;
+  margin: 0em 2em 10em;
+  display: flex;
+}
+
+img{
+  float: right;
+} 
+
+.footer{
+  display: flex;
+  margin: 0em;
+  padding:0em;
+  
+}
+
+ul{
+  margin:10em;
+}
+.Get-Started_Btn{
+  color:rgb(184, 32, 32);
+}
+ */
+
+/* 
+  h1
+      margin: 2em;
+      padding:1em 2em 1em;
+      display: flex;
+      border: 4em;
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *:after {
+  box-sizing: inherit;
+}
+
+/* Global Styles */
+/* Must be careful with setting global styles */
+body {
+  margin: 0 auto;
+}
+
+
+/* Sections within body */
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+
+/* Footer */
