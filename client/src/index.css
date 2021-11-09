@@ -1,3 +1,5 @@
+/* Older CSS */
+
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -89,6 +91,8 @@ ul{
       border: 4em;
 */
 
+/* Border boxing for controlling margin and padding overflow */
+
 html {
   box-sizing: border-box;
 }
@@ -106,9 +110,13 @@ body {
 
 /* Sections within body */
 
+
+/* Header */
+
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #343a40;
+  height: 115px;
 }
 
 .topnav a {
@@ -118,6 +126,16 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+}
+
+.login {
+  float: left;
+  padding-left: 15px;
+}
+
+.logout {
+  float: left;
+  padding-left: 15px;
 }
 
 .topnav a:hover {
@@ -132,6 +150,11 @@ body {
 
 .topnav-right {
   float: right;
+  padding: 34px;
+}
+
+.logo {
+  padding: 15px;
 }
 
 

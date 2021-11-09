@@ -22,7 +22,7 @@ function Logout() {
   };
 
   return (
-    <div>
+    <div className="logout">
       <GoogleLogout
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Logout"

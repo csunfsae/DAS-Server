@@ -22,7 +22,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login">
       <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Login"
