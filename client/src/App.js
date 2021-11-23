@@ -6,6 +6,7 @@ import LiveData from './pages/LiveData';
 import HistoricalData from './pages/HistoricalData';
 import LandingPage from './pages/LandingPage';
 import Register from './pages/Register';
+import Login from './pages/Login';
 
 import ListSensors from './pages/sensors/ListSensors';
 import NewSensor from './pages/sensors/NewSensor';
@@ -48,6 +49,8 @@ function App() {
         <Route exact path={"/live"} component={LiveData}/>
         <Route path={"/history"} component={HistoricalData}/>
         <Route path={"/register"} component={Register}/>
+        <Route path={"/login"} component={Login}/>
+
         
         <Route exact path={"/users"} component={ListUsers}/>
         <Route path={"/users/new"} component={NewUser}/>
