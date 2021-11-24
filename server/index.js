@@ -192,44 +192,44 @@ io.on('connection', (socket) => {
 });
 
 
-async function test(socket) {
+// async function test(socket) {
 
-    var workbook = XLSX.readFile('./data/excelFiles/Copy-Simulation-Test-Data.xlsx');
+//     var workbook = XLSX.readFile('./data/excelFiles/Copy-Simulation-Test-Data.xlsx');
 
-    var sheet_name_list = workbook.SheetNames;
-    var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
+//     var sheet_name_list = workbook.SheetNames;
+//     var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
 
-    for (let i = 0; i < xlData.length; i++) {
+//     for (let i = 0; i < xlData.length; i++) {
 
-        socket.emit('lap_time', xlData[i].Lap_Time);
+//         socket.emit('lap_time', xlData[i].Lap_Time);
 
-        socket.emit('gForceChart', { x: (-1 * xlData[i].G_G_Latitude), y: (-1 * xlData[i].G_G_Longitude) });
-        socket.emit('gps_data', { x: xlData[i].GPS_Longitude, y: xlData[i].GPS_Latitude });
+//         socket.emit('gForceChart', { x: (-1 * xlData[i].G_G_Latitude), y: (-1 * xlData[i].G_G_Longitude) });
+//         socket.emit('gps_data', { x: xlData[i].GPS_Longitude, y: xlData[i].GPS_Latitude });
 
-        socket.emit('battery_voltage', xlData[i].Battery_Voltage);
+//         socket.emit('battery_voltage', xlData[i].Battery_Voltage);
 
-        socket.emit('fl_tire_load', xlData[i].FL_Tire_Load);
-        socket.emit('fl_tire_temp', xlData[i].FL_Tire_Temp);
+//         socket.emit('fl_tire_load', xlData[i].FL_Tire_Load);
+//         socket.emit('fl_tire_temp', xlData[i].FL_Tire_Temp);
 
-        socket.emit('fr_tire_load', xlData[i].FR_Tire_Load);
-        socket.emit('fr_tire_temp', xlData[i].FR_Tire_Temp);
+//         socket.emit('fr_tire_load', xlData[i].FR_Tire_Load);
+//         socket.emit('fr_tire_temp', xlData[i].FR_Tire_Temp);
 
-        socket.emit('rl_tire_load', xlData[i].RL_Tire_Load);
-        socket.emit('rl_tire_temp', xlData[i].RL_Tire_Temp);
+//         socket.emit('rl_tire_load', xlData[i].RL_Tire_Load);
+//         socket.emit('rl_tire_temp', xlData[i].RL_Tire_Temp);
 
-        socket.emit('rr_tire_load', xlData[i].RR_Tire_Load);
-        socket.emit('rr_tire_temp', xlData[i].RR_Tire_Temp);
+//         socket.emit('rr_tire_load', xlData[i].RR_Tire_Load);
+//         socket.emit('rr_tire_temp', xlData[i].RR_Tire_Temp);
 
-        socket.emit('brake_position', xlData[i].Brake_Position);
-        socket.emit('steering_angle', xlData[i].Steering_Angle);
-        socket.emit('motor_temp', xlData[i].Motor_Temp);
-        socket.emit('throttle_position', xlData[i].Throttle_Position);
-        socket.emit('motor_controller_air_temp', xlData[i].Motor_Controller_Air_Temp);
-        socket.emit('speed', xlData[i].Speed);
-        await sleep(100);
-    }
-}
+//         socket.emit('brake_position', xlData[i].Brake_Position);
+//         socket.emit('steering_angle', xlData[i].Steering_Angle);
+//         socket.emit('motor_temp', xlData[i].Motor_Temp);
+//         socket.emit('throttle_position', xlData[i].Throttle_Position);
+//         socket.emit('motor_controller_air_temp', xlData[i].Motor_Controller_Air_Temp);
+//         socket.emit('speed', xlData[i].Speed);
+//         await sleep(100);
+//     }
+// }
 
 function sleep(ms) {
     return new Promise((resolve) => {
