@@ -36,9 +36,9 @@ function App() {
         <Route path={"/history"} component={HistoricalData} />
 
         <Route exact path={"/users"} component={ListUsers} />
-        <Route path={"/users/new"} component={NewUser} />
-        <Route exact path={"/users/:id"} component={ShowUser} />
-        <Route path={"/users/:id/edit"} component={EditUser} />
+        <Route path={"/user/new"} component={NewUser} />
+        <Route exact path={"/user/:id"} component={ShowUser} />
+        <Route path={"/user/:id/edit"} component={EditUser} />
 
         <Route exact path={"/subTeams"} component={ListSubTeams} />
         <Route path={"/subTeams/new"} component={NewSubTeam} />

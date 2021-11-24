@@ -1,12 +1,13 @@
 import express from 'express';
-import { getUsers, authUser, createUser, logoutUser, checkUser } from '../controllers/users.js';
+import { getUsers, loginUser, createUser, logoutUser, getUserById, validateNewUserEmail } from '../controllers/users.js';
 
 const router = express.Router();
 
-router.get('/', getUsers);
-router.get('/google/user', authUser);
-router.post('/', createUser);
+router.get('/google/login', loginUser);
 router.get('/google/logout', logoutUser)
-router.get('/me', checkUser)
+router.get('/authorize', getUserById)
+router.get('/google/newUser', validateNewUserEmail)
+router.post('/create', createUser);
+router.get('/list', getUsers);
 
 export default router;

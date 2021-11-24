@@ -10,7 +10,7 @@ export const getUsers = async (req, res) => {
     }
 };
 
-export const authUser = async (req, res) => {
+export const loginUser = async (req, res) => {
     try {
         const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
@@ -43,7 +43,35 @@ export const logoutUser = async (req, res) => {
     })
 }
 
-export const checkUser = async (req, res) => {
+export const validateNewUserEmail = async (req, res) => {
+    try {
+        const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+        const token = req.query.tokenId;
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: process.env.CLIENT_ID
+        });
+
+        const { email } = ticket.getPayload();
+
+        if (!email.endsWith('@my.csun.edu') && !email.endsWith('@csun.edu')) {
+            throw Error("Must use CSUN email address in order to sign up.");
+        }
+
+        const user = await User.findOne({ email: email });
+
+        if (user == null) {
+            res.status(200).json(token);
+        } else {
+            throw Error("User already exists!");
+        }
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
+export const getUserById = async (req, res) => {
     const user = await User.findOne({ _id: req.session.userId });
     res.status(200).json(user);
 }

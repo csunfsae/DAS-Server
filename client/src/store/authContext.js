@@ -7,7 +7,7 @@ const AuthContext = React.createContext({
 export const AuthContextProvider = (props) => {
 
     const userIsLoggedIn = async () => {
-        const res = await fetch(`http://localhost:4000/api/v1/auth/me`, {
+        const res = await fetch(`http://localhost:4000/api/v1/auth/authorize`, {
             method: "Get",
             credentials: 'include',
             headers: {

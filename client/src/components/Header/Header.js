@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import logo from '../../FSAE-Logo.png';
 import Login from '../../components/login/Login';
 import Logout from '../../components/login/Logout';
+import SignUp from '../../components/login/SignUp';
 import AuthContext from '../../store/authContext';
 
 function Header() {
@@ -16,6 +17,10 @@ function Header() {
             );
     }, undefined)
 
+    function Login() {
+        <Login />
+    }
+
     return (
         <Navbar className="das-navbar" bg="dark" variant="dark" expand="lg">
             <Navbar.Brand href="#home">
@@ -25,7 +30,7 @@ function Header() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     {!isLoggedIn && (
-                        <Login />
+                        <button onClick={Login}><Login /></button>
                     )}
                     {isLoggedIn && (
                         <><Nav.Link href="#link">Suspension</Nav.Link><Nav.Link href="#link">Engine</Nav.Link><Logout /></>
