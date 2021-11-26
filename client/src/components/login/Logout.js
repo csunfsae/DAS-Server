@@ -6,7 +6,7 @@ function Logout() {
   const history = useHistory();
 
   const onSuccess = async () => {
-    const res = await fetch(`http://localhost:4000/api/v1/auth/google/logout`, {
+    const res = await fetch(`/api/v1/auth/google/logout`, {
       method: "Get",
       credentials: 'include',
       headers: {

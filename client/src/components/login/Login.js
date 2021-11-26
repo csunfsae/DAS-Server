@@ -3,7 +3,7 @@ import { GoogleLogin } from 'react-google-login';
 
 function Login() {
   const onSuccess = async googleData => {
-    const res = await fetch(`http://localhost:4000/api/v1/auth/google/user?tokenId=${encodeURIComponent(googleData.tokenId)}`, {
+    const res = await fetch(`/api/v1/auth/google/user?tokenId=${encodeURIComponent(googleData.tokenId)}`, {
       method: "Get",
       credentials: 'include',
       headers: {
