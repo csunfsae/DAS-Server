@@ -37,7 +37,7 @@
     "node": "14.18.1"
   },
   "scripts": {
-    "start": "node --exec babel-node server.js --ignore client",
+    "start": "nodemon --exec babel-node server.js --ignore client",
     "build": "babel server.js --out-file server.compiled.js"
   }
 }
