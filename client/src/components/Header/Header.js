@@ -1,12 +1,11 @@
 import { useState, useContext, useEffect } from 'react';
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
 import logo from '../../FSAE-Logo.png';
-import Login from '../../components/login/Login';
-import Logout from '../../components/login/Logout';
+import Login from '../login/Login';
+import Logout from '../login/Logout';
 import AuthContext from '../../store/authContext';
 
-function Header() {
+function Header(){
+
     const [isLoggedIn, setLogin] = useState(false);
     const authCtx = useContext(AuthContext);
     useEffect(() => {
@@ -17,22 +16,20 @@ function Header() {
     }, undefined)
 
     return (
-        <Navbar className="das-navbar" bg="dark" variant="dark" expand="lg">
-            <Navbar.Brand href="#home">
-                <img src={logo} alt="FSAE Logo" />
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    {!isLoggedIn && (
-                        <Login />
-                    )}
-                    {isLoggedIn && (
-                        <><Nav.Link href="#link">Suspension</Nav.Link><Nav.Link href="#link">Engine</Nav.Link><Logout /></>
-                    )}
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+
+        <div class="topnav">
+            <img src={logo} class="logo" alt="FSAE Logo"/>
+            <div class="topnav-right">
+                <a href="/live">Live</a>
+                <a href="#about">Historical</a>
+                {!isLoggedIn && (
+                    <Login />
+                )}
+                {isLoggedIn && (
+                    <Logout />
+                )}
+            </div>
+        </div>
     );
 }
 

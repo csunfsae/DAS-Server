@@ -1,6 +1,6 @@
 
 import React from 'react';
-import HeaderLP from '../components/Header/HeaderLP'
+import Header from '../components/Header/Header'
 import Footer from '../components/Footer';
 // import Container from 'react-bootstrap/esm/Container';
 import racecar from '../components/images/racecar.svg';
@@ -10,9 +10,9 @@ function LandingPage() {
         <div className= "lPBody">
 
             
-           <HeaderLP className = "Header">
+           <Header className = "Header">
             
-            </HeaderLP>
+            </Header>
             
             <div className="overlay">
             <h1>Data Acquisition System customized for CSUN FSAE team.</h1>
