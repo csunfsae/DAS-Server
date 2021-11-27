@@ -1,7 +1,6 @@
 {
   "name": "fsae-server-v1",
   "version": "1.0.0",
-  "main": "server.js",
   "type": "module",
   "license": "MIT",
   "dependencies": {
