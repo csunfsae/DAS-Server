@@ -34,10 +34,10 @@
     "nodemon": "^2.0.15"
   },
   "engines": {
-    "node": ">=14"
+    "node": "14.18.1"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node server.js --ignore client",
+    "start": "node --exec babel-node server.js --ignore client",
     "build": "babel server.js --out-file server.compiled.js"
   }
 }
