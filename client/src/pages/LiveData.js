@@ -9,6 +9,8 @@ import GPSMap from '../components/livePage/GPSMap/GPSMap';
 import Header from '../components/Header/Header';
 import AuthContext from '../store/authContext';
 import { Redirect } from 'react-router'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.css';
 
 function LiveData() {
     const [isLoggedIn, setLogin] = useState(true);
