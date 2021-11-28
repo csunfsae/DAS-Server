@@ -66,6 +66,7 @@ export const createUser = (req, res) => {
         });
 
         newUser.save();
+        res.status(200).json(newUser);
     } catch (error) {
         console.log(error)
     }
