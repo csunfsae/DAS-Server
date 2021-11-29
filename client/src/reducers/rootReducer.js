@@ -1,16 +1,16 @@
 import proj4 from 'proj4';
 
 const initialCarLocation = () => {
-    return window.localStorage.getItem('car-location') || JSON.stringify({x: -118.257521724907, y: 34.876530909858, verticalDisplacement: 0});
-  }
+    return window.localStorage.getItem('car-location') || JSON.stringify({ x: -118.257521724907, y: 34.876530909858, verticalDisplacement: 0 });
+}
 
 const initalJetsonConnection = () => {
     return window.localStorage.getItem('jetson-connecton') || "Not Connected";
 }
 
 const initalStartPosition = (latitude, longitude) => {
-    const [x,y] = proj4("EPSG:4326", "EPSG:3857", [ parseFloat(longitude.toFixed(7)),  parseFloat(latitude.toFixed(7))] );
-    
+    const [x, y] = proj4("EPSG:4326", "EPSG:3857", [parseFloat(longitude.toFixed(7)), parseFloat(latitude.toFixed(7))]);
+
     return {
         x: x,
         y: y
@@ -32,7 +32,7 @@ const initalState = {
         min: 168.799,
         max: 188.597,
         value: 168.799
-    }, 
+    },
     motorControllerAirTemp: {
         min: 57.316,
         max: 72.361,
@@ -61,7 +61,7 @@ const initalState = {
     FRTireLoad: {
         min: -76.5,
         max: 112.25,
-        value:  -76.5
+        value: -76.5
     },
     FRTireTemp: {
         min: -76.5,
@@ -90,23 +90,24 @@ const initalState = {
     },
     lapTime: "00:00",
     lapTimes: [],
-    bestLapTime: {time: "00:00", lapNumber: 1},
+    bestLapTime: { time: "00:00", lapNumber: 1 },
     speed: 0,
     gForceData: [],
     startLocation: initalStartPosition(34.876530909858, -118.257521724907),
-    carLocation: {x: -118.257521724907, y: 34.876530909858, verticalDisplacement: 0},
+    carLocation: { x: -118.257521724907, y: 34.876530909858, verticalDisplacement: 0 },
     gpsTrackCoordinates: [],
     jetsonConnection: initalJetsonConnection(),
     firstLap: true,
     lapCount: 1,
-    GPSMapContainerDimensions: { height: 0, width: 0},
-    GPSMapSvgPathDimensions: {x: 0, y: 0, width: 0, height: 0}
+    speedometer: 0,
+    GPSMapContainerDimensions: { height: 0, width: 0 },
+    GPSMapSvgPathDimensions: { x: 0, y: 0, width: 0, height: 0 }
 
 };
 
 function rootReducer(state = initalState, action) {
-    
-    switch(action.type) {
+
+    switch (action.type) {
         case "update-battery_voltage-value":
             return {
                 ...state,
@@ -122,7 +123,7 @@ function rootReducer(state = initalState, action) {
         case "update-motor_temp-value":
             return {
                 ...state,
-                motorTemp:{ ...state.motorTemp, value: action.payload }
+                motorTemp: { ...state.motorTemp, value: action.payload }
             }
 
         case "update-motor_controller_air_temp-value":
@@ -136,7 +137,7 @@ function rootReducer(state = initalState, action) {
                 ...state,
                 throttlePosition: { ...state.throttlePosition, value: action.payload }
             }
-        
+
         case "update-brake_position":
             return {
                 ...state,
@@ -177,7 +178,7 @@ function rootReducer(state = initalState, action) {
             return {
                 ...state,
                 RLTireTemp: { ...state.RLTireTemp, value: action.payload }
-            } 
+            }
 
         case "update-rr_tire_load":
             return {
@@ -189,11 +190,11 @@ function rootReducer(state = initalState, action) {
             return {
                 ...state,
                 RRTireTemp: { ...state.RRTireTemp, value: action.payload }
-            }        
-    
+            }
+
         case "update-gg-diagram":
             return {
-                ...state, 
+                ...state,
                 gForceData: [...state.gForceData, action.payload]
             }
         case "update-gps-track-coordinates":
@@ -202,7 +203,7 @@ function rootReducer(state = initalState, action) {
                 gpsTrackCoordinates: [...state.gpsTrackCoordinates, action.payload]
             }
         case "update-car-location":
-           return {
+            return {
                 ...state,
                 carLocation: action.payload
             }
@@ -217,7 +218,7 @@ function rootReducer(state = initalState, action) {
                 ...state,
                 GPSMapSvgPathDimensions: action.payload
             }
-        
+
         case "update-speed":
             return {
                 ...state,
@@ -235,31 +236,36 @@ function rootReducer(state = initalState, action) {
                 ...state,
                 lapCount: state.lapCount + 1
             }
-        
-            case "update-lap-time":
-                return {
-                    ...state,
-                    lapTime: action.payload
-                }
 
-            case "update-lap-times":
-                return {
-                    ...state,
-                    lapTimes: [...state.lapTimes, action.payload]
-                }
-            
-            case "update-best-lap-time":
-                return {
-                    ...state,
-                    bestLapTime: action.payload
-                }
-            
+        case "update-lap-time":
+            return {
+                ...state,
+                lapTime: action.payload
+            }
 
-            case "update-jetson-connection":
-                return {
-                    ...state,
-                    jetsonConnection: action.payload
-                }
+        case "update-lap-times":
+            return {
+                ...state,
+                lapTimes: [...state.lapTimes, action.payload]
+            }
+
+        case "update-best-lap-time":
+            return {
+                ...state,
+                bestLapTime: action.payload
+            }
+
+        case "update-speedometer":
+            return {
+                ...state,
+                speedometer: action.payload
+            }
+
+        case "update-jetson-connection":
+            return {
+                ...state,
+                jetsonConnection: action.payload
+            }
 
         default:
             return state;

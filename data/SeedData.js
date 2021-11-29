@@ -35,267 +35,267 @@ const seedData = async () => {
                 createdAt: Date.now()
             })
 
-            await DriveDay.create({
-                date: "2021-02-22",
-                sessions: [
-                    {
-                        number: 1,
-                        laps: [
-                            {
-                                lap_number: 1,
-                                lap_time: "34:23"
-                            },
-                            {
-                                lap_number: 2,
-                                lap_time: "40:123"
-                            },
-                            {
-                                lap_number: 3,
-                                lap_time: "43:59"
-                            },
-                        ]
-                    }
-                ]
-            })
+            // await DriveDay.create({
+            //     date: "2021-02-22",
+            //     sessions: [
+            //         {
+            //             number: 1,
+            //             laps: [
+            //                 {
+            //                     lap_number: 1,
+            //                     lap_time: "34:23"
+            //                 },
+            //                 {
+            //                     lap_number: 2,
+            //                     lap_time: "40:123"
+            //                 },
+            //                 {
+            //                     lap_number: 3,
+            //                     lap_time: "43:59"
+            //                 },
+            //             ]
+            //         }
+            //     ]
+            // })
 
-            await BatteryVoltage.create(
-                {
-                    date: "2021-02-19",
-                    lapTime: 20.00,
-                    sessionNumber: 1,
-                    lapNumber: 1,
-                    value: 50
-                }
-            )
+            // await BatteryVoltage.create(
+            //     {
+            //         date: "2021-02-19",
+            //         lapTime: 20.00,
+            //         sessionNumber: 1,
+            //         lapNumber: 1,
+            //         value: 50
+            //     }
+            // )
 
-            await DriveDay.create({
-                date: "2021-02-19",
-                sessions: [
-                    {
-                        number: 1,
-                        laps: [
-                            {
-                                lap_number: 1,
-                                lap_time: "34:23"
-                            },
-                            {
-                                lap_number: 2,
-                                lap_time: "40:123"
-                            },
-                            {
-                                lap_number: 3,
-                                lap_time: "43:59"
-                            },
-                        ]
-                    }
-                ]
-            })
+            // await DriveDay.create({
+            //     date: "2021-02-19",
+            //     sessions: [
+            //         {
+            //             number: 1,
+            //             laps: [
+            //                 {
+            //                     lap_number: 1,
+            //                     lap_time: "34:23"
+            //                 },
+            //                 {
+            //                     lap_number: 2,
+            //                     lap_time: "40:123"
+            //                 },
+            //                 {
+            //                     lap_number: 3,
+            //                     lap_time: "43:59"
+            //                 },
+            //             ]
+            //         }
+            //     ]
+            // })
 
-            await DriveDay.create({
-                date: "2021-02-20",
-                sessions: [
-                    {
-                        number: 1,
-                        laps: [
-                            {
-                                lap_number: 1,
-                                lap_time: "34:23"
-                            },
-                            {
-                                lap_number: 2,
-                                lap_time: "40:123"
-                            },
-                        ]
-                    }
-                ]
-            })
+            // await DriveDay.create({
+            //     date: "2021-02-20",
+            //     sessions: [
+            //         {
+            //             number: 1,
+            //             laps: [
+            //                 {
+            //                     lap_number: 1,
+            //                     lap_time: "34:23"
+            //                 },
+            //                 {
+            //                     lap_number: 2,
+            //                     lap_time: "40:123"
+            //                 },
+            //             ]
+            //         }
+            //     ]
+            // })
 
-            await DriveDay.create({
-                date: "2021-02-21",
-                sessions: [
-                    {
-                        number: 1,
-                        laps: [
-                            {
-                                lap_number: 1,
-                                lap_time: "20:20"
-                            },
-                            {
-                                lap_number: 2,
-                                lap_time: "19:56"
-                            },
-                            {
-                                lap_number: 3,
-                                lap_time: "32:40"
-                            },
-                        ]
-                    }
-                ]
-            })
+            // await DriveDay.create({
+            //     date: "2021-02-21",
+            //     sessions: [
+            //         {
+            //             number: 1,
+            //             laps: [
+            //                 {
+            //                     lap_number: 1,
+            //                     lap_time: "20:20"
+            //                 },
+            //                 {
+            //                     lap_number: 2,
+            //                     lap_time: "19:56"
+            //                 },
+            //                 {
+            //                     lap_number: 3,
+            //                     lap_time: "32:40"
+            //                 },
+            //             ]
+            //         }
+            //     ]
+            // })
 
-            var workbook = XLSX.readFile('./data/excelFiles/Copy-Simulation-Test-Data.xlsx');
-            var sheet_name_list = workbook.SheetNames;
-            var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-            let lap = 1;
-            for (let i = 0; i < xlData.length; i++) {
-                if (i > 416) {
-                    lap = 2
-                }
-                await BatteryVoltage.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].Battery_Voltage
-                    }
-                );
+            // var workbook = XLSX.readFile('./data/excelFiles/Copy-Simulation-Test-Data.xlsx');
+            // var sheet_name_list = workbook.SheetNames;
+            // var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
+            // let lap = 1;
+            // for (let i = 0; i < xlData.length; i++) {
+            //     if (i > 416) {
+            //         lap = 2
+            //     }
+            //     await BatteryVoltage.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].Battery_Voltage
+            //         }
+            //     );
 
-                await BrakePosition.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].Brake_Position
-                    }
-                );
+            //     await BrakePosition.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].Brake_Position
+            //         }
+            //     );
 
-                await GGSuspension.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        latitude: xlData[i].G_G_Latitude,
-                        longitude: xlData[i].G_G_Longitude
-                    }
-                );
+            //     await GGSuspension.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             latitude: xlData[i].G_G_Latitude,
+            //             longitude: xlData[i].G_G_Longitude
+            //         }
+            //     );
 
-                await GPSLocation.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        latitude: xlData[i].GPS_Latitude,
-                        longitude: xlData[i].GPS_Longitude
-                    }
-                );
+            //     await GPSLocation.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             latitude: xlData[i].GPS_Latitude,
+            //             longitude: xlData[i].GPS_Longitude
+            //         }
+            //     );
 
-                await MotorControllerAirTemp.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].Motor_Controller_Air_Temp
-                    }
-                );
+            //     await MotorControllerAirTemp.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].Motor_Controller_Air_Temp
+            //         }
+            //     );
 
-                await MotorTemp.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].Motor_Temp
-                    }
-                );
+            //     await MotorTemp.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].Motor_Temp
+            //         }
+            //     );
 
-                await Speed.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].Speed
-                    }
-                );
+            //     await Speed.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].Speed
+            //         }
+            //     );
 
-                await SteeringAngle.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].Steering_Angle
-                    }
-                );
+            //     await SteeringAngle.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].Steering_Angle
+            //         }
+            //     );
 
-                await ThrottlePosition.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].Throttle_Position
-                    }
-                );
+            //     await ThrottlePosition.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].Throttle_Position
+            //         }
+            //     );
 
-                await FLTireLoad.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].FL_Tire_Load
-                    }
-                );
+            //     await FLTireLoad.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].FL_Tire_Load
+            //         }
+            //     );
 
-                await FLTireTemp.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].FL_Tire_Temp
-                    }
-                );
+            //     await FLTireTemp.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].FL_Tire_Temp
+            //         }
+            //     );
 
-                await FRTireLoad.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].FR_Tire_Load
-                    }
-                );
+            //     await FRTireLoad.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].FR_Tire_Load
+            //         }
+            //     );
 
-                await FRTireTemp.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].FR_Tire_Temp
-                    }
-                );
+            //     await FRTireTemp.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].FR_Tire_Temp
+            //         }
+            //     );
 
-                await RLTireLoad.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].RL_Tire_Load
-                    }
-                );
+            //     await RLTireLoad.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].RL_Tire_Load
+            //         }
+            //     );
 
-                await RLTireTemp.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].RL_Tire_Temp
-                    }
-                );
+            //     await RLTireTemp.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].RL_Tire_Temp
+            //         }
+            //     );
 
-                await RRTireLoad.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].RR_Tire_Load
-                    }
-                );
+            //     await RRTireLoad.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].RR_Tire_Load
+            //         }
+            //     );
 
-                await RRTireTemp.create(
-                    {
-                        lapTime: xlData[i].Lap_Time,
-                        sessionNumber: 1,
-                        lapNumber: lap,
-                        value: xlData[i].RR_Tire_Temp
-                    }
-                );
-            }
+            //     await RRTireTemp.create(
+            //         {
+            //             lapTime: xlData[i].Lap_Time,
+            //             sessionNumber: 1,
+            //             lapNumber: lap,
+            //             value: xlData[i].RR_Tire_Temp
+            //         }
+            //     );
+            // }
         }
     }
     catch (error) {

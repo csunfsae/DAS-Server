@@ -1,10 +1,14 @@
-import {UPDATE_LAP_TIME, UPDATE_LAP_TIMES, UPDATE_BEST_LAP_TIME, UPDATE_LAP_COUNT} from "../../actions/livePage/lapTimesActions";
+import { UPDATE_LAP_TIME, UPDATE_LAP_TIMES, UPDATE_BEST_LAP_TIME, UPDATE_LAP_COUNT, UPDATE_SPEEDOMETER } from "../../actions/livePage/lapTimesActions";
 
 const initalState = {
     lapTime: "00:00",
     lapTimes: [],
     lapCount: 1,
-    bestLapTime: {time: "00:00", lapNumber: 1}, 
+    speedometer: 0,
+    bestLapTime: {
+        time: "00:00",
+        lapNumber: 1
+    },
 }
 
 function lapTimesReducer(state = initalState, action) {
@@ -26,13 +30,19 @@ function lapTimesReducer(state = initalState, action) {
                 ...state,
                 lapTimes: [...state.lapTimes, action.payload]
             }
-        
+
         case UPDATE_BEST_LAP_TIME:
             return {
                 ...state,
                 bestLapTime: action.payload
             }
-            
+
+        case UPDATE_SPEEDOMETER:
+            return {
+                ...state,
+                speedometer: action.payload
+            }
+
         default:
             return state;
     }

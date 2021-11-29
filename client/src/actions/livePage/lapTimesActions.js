@@ -2,6 +2,7 @@ export const UPDATE_LAP_TIME = "UPDATE_LAP_TIME";
 export const UPDATE_LAP_TIMES = "UPDATE_LAP_TIMES";
 export const UPDATE_BEST_LAP_TIME = "UPDATE_BEST_LAP_TIME";
 export const UPDATE_LAP_COUNT = "UPDATE_LAP_COUNT";
+export const UPDATE_SPEEDOMETER = "UPDATE_SPEEDOMETER";
 
 export const updateLapTime = lapTime => ({
     type: UPDATE_LAP_TIME,
@@ -20,4 +21,10 @@ export const updateBestLapTime = bestLapTime => ({
 
 export const updateLapCount = () => ({
     type: UPDATE_LAP_COUNT
-})
+});
+
+export const updateSpeedometer = speedometer => ({
+    type: UPDATE_SPEEDOMETER,
+    payload: speedometer
+});
+
