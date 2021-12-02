@@ -35,7 +35,6 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use(express.json());
 app.use(cookieParser());
 
-
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({ resave: false, secret: '123456', cookie: { maxAge: oneDay }, saveUninitialized: true }));
 
@@ -43,7 +42,7 @@ app.use(session({ resave: false, secret: '123456', cookie: { maxAge: oneDay }, s
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', '/');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -85,7 +84,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('speedometer', (msg) => {
-        socket.broadcast.emit('speedometer', msg)
+        socket.emit('speedometer', msg)
     });
 
     //test(socket);
