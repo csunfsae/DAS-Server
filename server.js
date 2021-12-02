@@ -23,7 +23,7 @@ import DriveDay from './models/driveDay.js';
 dotenv.config({ path: './config/config.env' })
 
 connectDB();
-//createSeedData();
+createSeedData();
 
 const app = express();
 
