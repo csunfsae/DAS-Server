@@ -29,11 +29,11 @@
     "xlsx": "^0.16.9"
   },
   "devDependencies": {
-    "babel/cli": "^7.16.0",
-    "babel/core": "^7.16.0",
-    "babel/node": "^7.16.0",
-    "babel/preset-env": "^7.16.4",
-    "babel-loader": "^8.2.3",
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.15"
   },
