@@ -43,8 +43,8 @@ _dotenv["default"].config({
   path: './config/config.env'
 });
 
-(0, _db["default"])(); //createSeedData();
-
+(0, _db["default"])();
+(0, _SeedData["default"])();
 var app = (0, _express["default"])(); // Telling server to serve static files on client
 
 var _dirname = _path["default"].resolve();
