@@ -13,7 +13,7 @@ function Login() {
     if (res.status === 200) {
       window.location.reload(true);
     } else {
-      alert("User not found. Please sign up or try a different user.")
+      alert(await res.json().then(data => data.error));
     }
   };
 
@@ -22,7 +22,7 @@ function Login() {
   };
 
   return (
-    <div className="login">
+    <div className="login-button">
       <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="Login"
@@ -30,7 +30,7 @@ function Login() {
         onFailure={onFailure}
         cookiePolicy={'single_host_origin'}
         style={{ marginTop: '100px' }}
-        isSignedIn={true}
+        isSignedIn={false}
       />
     </div>
   );
