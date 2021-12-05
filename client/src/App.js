@@ -5,7 +5,8 @@ import { Switch, Route } from "react-router-dom";
 import LiveData from "./pages/LiveData";
 import HistoricalData from "./pages/HistoricalData";
 import LandingPage from "./pages/LandingPage";
-import Register from "./pages/Register";
+import RegisterPage from "./pages/RegisterPage";
+import RegisterSuccessPage from "./pages/RegisterSuccessPage";
 
 import ListSensors from "./pages/sensors/ListSensors";
 import NewSensor from "./pages/sensors/NewSensor";
@@ -26,8 +27,7 @@ import ListSensorCategories from "./pages/sensorCategories/ListSensorCategories"
 import EditSensorCategory from "./pages/sensorCategories/EditSensorCategory";
 import ShowSensorCategory from "./pages/sensorCategories/ShowSensorCategory";
 import NewSensorCategory from "./pages/sensorCategories/NewSensorCategory";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer";
+
 
 function App() {
   return (
@@ -42,7 +42,8 @@ function App() {
         */}
         <Route exact path={"/live"} component={LiveData} />
         <Route path={"/history"} component={HistoricalData} />
-        <Route path={"/register"} component={Register} />
+        <Route path={"/register"} component={RegisterPage} />
+        <Route path={"/registration-success"} component={RegisterSuccessPage} />
 
         <Route exact path={"/users"} component={ListUsers} />
         <Route path={"/users/new"} component={NewUser} />

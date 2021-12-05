@@ -22,7 +22,12 @@ const UserSchema = mongoose.Schema({
         default: "Basic"
     },
     team: {
-        type: String
+        type: String,
+        default: "Unassigned"
+    },
+    status: {
+        type: String,
+        default: "Pending"
     },
     createdAt: {
         type: Date,

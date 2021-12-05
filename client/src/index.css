@@ -116,12 +116,14 @@ body {
 
 .overlay {
   display: flexbox;
-  padding: 1em;
   margin: 5em;
-  padding-left: 52em;
+  text-align: center;
 }
-.carImg {
-  padding: 3em;
+#carImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 .overlay h1 {
   color: rgb(246, 33, 33);
@@ -130,10 +132,19 @@ body {
 .overlay p {
   color: white;
 }
+
+.register-nav a {
+  padding: 5px !important;
+  width: relative;
+  font-size: 15px !important;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #2c2c2c;
-  height: 115px;
+  height: 135px;
 }
 
 .topnav a {
@@ -145,8 +156,8 @@ body {
   font-size: 17px;
 }
 
-.login {
-  float: left;
+.login-button {
+  float: right;
   padding-left: 15px;
 }
 
@@ -172,6 +183,7 @@ body {
 
 .logo {
   padding: 15px;
+  background-color: transparent !important;
 }
 
 /*register page*/
@@ -234,7 +246,8 @@ input {
   color: white;
 }
 
-.register-page h2 {
+.register-page h2,
+h4 {
   color: white;
 }
 
