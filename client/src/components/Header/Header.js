@@ -3,8 +3,9 @@ import logo from '../../FSAE-Logo.png';
 import Login from '../login/Login';
 import Logout from '../login/Logout';
 import AuthContext from '../../store/authContext';
+import { Link } from "react-router-dom";
 
-function Header(){
+function Header() {
 
     const [isLoggedIn, setLogin] = useState(false);
     const authCtx = useContext(AuthContext);
@@ -16,17 +17,22 @@ function Header(){
     }, undefined)
 
     return (
-
         <div class="topnav">
-            <img src={logo} class="logo" alt="FSAE Logo"/>
+            <a class="logo" target="_blank" href="/">
+                <img src={logo} alt="FSAE Logo" />
+            </a>
             <div class="topnav-right">
-                <a href="/live">Live</a>
-                <a href="#about">Historical</a>
+
                 {!isLoggedIn && (
-                    <Login />
+                    <><Login />
+                        <div class="register-nav">
+                            <Link to="/register">Don't have an account? <u>Register here</u></Link>
+                        </div></>
                 )}
                 {isLoggedIn && (
-                    <Logout />
+                    <><a href="/live"><u>Live</u></a>
+                        <a href="#about"><u>Historical</u></a>
+                        <Logout /></>
                 )}
             </div>
         </div>

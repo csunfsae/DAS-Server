@@ -32,6 +32,9 @@ const seedData = async () => {
                 firstName: "Das",
                 lastName: "User",
                 email: "dascsunuser@gmail.com",
+                status: "Active",
+                role: "Basic",
+                team: "Unassigned",
                 createdAt: Date.now()
             })
 
