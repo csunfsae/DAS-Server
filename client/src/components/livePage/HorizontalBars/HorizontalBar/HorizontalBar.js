@@ -19,7 +19,7 @@ function HorizontalBar(props) {
 
     }, [horizontalBarRef])
 
-    let fill = "#000";
+    let fill = "#32BFEB";
 
     const percentage = parseFloat( parseFloat( parseFloat(props.value - props.min) * 100) / parseFloat(props.max - props.min) );
 

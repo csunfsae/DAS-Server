@@ -46,7 +46,7 @@ function LapTimes () {
   }
 
     return (
-        <div>
+        <div className="laptimes">
             <h1>    
                 Lap {lapCount}: {lap_time} sec  
             </h1>
@@ -55,7 +55,7 @@ function LapTimes () {
             </h2>
             <h3>
             {lapTimes.map( (lapTime, index) => {
-                    return (<div>L{index + 1}: {lapTime}</div> )
+                    return (<div className="new-lap">L{index + 1}: {lapTime}</div> )
                 })
             }
             </h3>

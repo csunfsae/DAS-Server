@@ -6,6 +6,7 @@ import HorizontalBars from '../components/livePage/HorizontalBars/HorizontalBars
 import LapTimes from '../components/livePage/LapTimes/LapTimes';
 import GForceChart from '../components/livePage/GForceChart/GForceChart';
 import GPSMap from '../components/livePage/GPSMap/GPSMap';
+import TrackPath from '../components/livePage/TrackPath/TrackPath';
 import Header from '../components/Header/Header';
 import AuthContext from '../store/authContext';
 import { Redirect } from 'react-router'
@@ -32,17 +33,22 @@ function LiveData() {
                 <Container fluid>
                     <div className="das-container pt-5">
 
-                        <div className="laptimes">
+                        {/* <div className="laptimes">
                             <LapTimes />
-                        </div>
+                        </div> */}
+                        
 
                         <div className="horizontal-bars align-items-center">
+                            <div className="vehicle-tracker">
+                                <LapTimes/>
+                                <GPSMap/>
+                            </div>
                             <HorizontalBars />
                         </div>
 
-                        <div className="gps-track d-flex align-items-center justify-content-center">
+                        {/* <div className="gps-track d-flex align-items-center justify-content-center">
                             <GPSMap />
-                        </div>
+                        </div> */}
 
                         <div className="g-g-diagram">
                             <GForceChart />

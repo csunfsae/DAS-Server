@@ -39,7 +39,7 @@ function GPSMap () {
                 <div className="car-speed align-self-start p-2 mt-3" style={{fontWeight: 700}}>
                     {GPSMapSvgPathDimensions.x === 0 ? "" : `${parseInt(speed)} mph`}
                 </div>
-                {GPSMapSvgPathDimensions.x === 0 ? <h2>Need More Data... </h2> : ""}
+                {GPSMapSvgPathDimensions.x === 0 ? <h2>Loading data location... </h2> : ""}
                     <svg style={{width: "100%", height: "100%"}} viewBox={`${GPSMapSvgPathDimensions.x} ${GPSMapSvgPathDimensions.y - 5} ${GPSMapSvgPathDimensions.width} ${GPSMapSvgPathDimensions.height + 10}`}  >
                         <TrackPath/>
                         <CarLocation/>

@@ -27,7 +27,7 @@ function VerticalBar(props) {
                 <svg className="vertical-svg">
                     <path className="vertical-svg__path svg__path"
                         d={`M 0 ${svgLength.height} V ${svgLength.height - (svgLength.height * percentage) / 100} H ${svgLength.width} V ${svgLength.height} L 0 ${svgLength.height}`}
-                        fill={"#000"}
+                        fill={"#32BFEB"}
                     />
                 </svg>
             </div>

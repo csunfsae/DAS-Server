@@ -31,7 +31,7 @@ function Header() {
                 )}
                 {isLoggedIn && (
                     <><a href="/live"><u>Live</u></a>
-                        <a href="#about"><u>Historical</u></a>
+                        <a href="/history"><u>Historical</u></a>
                         <Logout /></>
                 )}
             </div>

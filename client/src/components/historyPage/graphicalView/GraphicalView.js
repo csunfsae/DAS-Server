@@ -17,6 +17,7 @@ function GraphicalView() {
     let svg = null;
     let xScale = null;
     let yScales = {};
+    let lapTimes;
 
     const renderGraphs = () => {
         let sensorGraphs = [];
@@ -123,8 +124,11 @@ function GraphicalView() {
     }, [])
 
     useEffect( () => {
-        
+        console.log("printing laptimes....");
         if(svgRef.current && Object.keys(sensorsData).length > 0) {
+
+            console.log("checking laptimes inside conditional...");
+            console.log(lapTimes);
 
             const height = Object.keys(sensorsData).length * 600;
             const width = svgRef.current.parentNode.getBoundingClientRect().width;
@@ -200,6 +204,7 @@ function GraphicalView() {
                     let roundedX0 = (Math.round(x0  * 10) / 10)
 
                     let lapTimes = convertLapTimesToArray(lapForSensor);
+                    console.log("checking laptimes");
                     
                     let bisect = bisector ( (lapTimes) => { return lapTimes} ).center;
 
@@ -245,7 +250,7 @@ function GraphicalView() {
     }
 
     const convertLapTimesToArray = (array) => {
-        let lapTimes = []
+        lapTimes = []
         for(const index in array) {
             lapTimes = [...lapTimes, +array[index].lapTime["$numberDecimal"]]
         }

@@ -34,7 +34,7 @@ function SteeringAngle () {
         });
     }, [])
 
-    let fill = "#000";
+    let fill = "#32BFEB";
 
     const percentage = parseFloat( parseFloat(8.5 + parseFloat( parseFloat( parseFloat(steering_angle.value - steering_angle.min) * 100) / parseFloat(steering_angle.max - steering_angle.min))) );
 
